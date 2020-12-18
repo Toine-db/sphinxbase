@@ -715,9 +715,14 @@ cmd_ln_init(cmd_ln_t *inout_cmdln, const arg_t *defn, int32 strict, ...)
 
     va_start(args, strict);
     f_argc = 0;
+    E_INFO("[cmd_ln_init incoming args]\n");
     while ((arg = va_arg(args, const char *))) {
         ++f_argc;
+        E_INFO("name: %s   ", arg);
+        E_INFO(" retrieving value...");
         val = va_arg(args, const char*);
+        E_INFO("value retrieved. \n");
+        E_INFO("value: %s \n", val);
         if (val == NULL) {
             E_ERROR("Number of arguments must be even!\n");
             return NULL;
